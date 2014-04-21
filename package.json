@@ -1,26 +1,22 @@
 {
-  "name": "UserManager",
-  "version": "0.0.0",
-  "description": "This is an app for codefellows JS code challenge",
-  "main": "server.js",
+  "name": "um2",
+  "version": "0.0.1-3",
+  "dependencies": {
+    "express": "~3.0.0",
+    "nohm": "~0.9.1",
+    "redis": "~0.8.1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.1.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dzdonov/usermanager"
-  },
-  "keywords": [
-    "js"
-  ],
-  "author": "dennis z",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dzdonov/usermanager/issues"
-  },
-  "homepage": "https://github.com/dzdonov/usermanager",
-  "dependencies": {
-    "express": "^4.0.0"
-  }
+  "description": "ERROR: No README.md file found!",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": "",
+  "author": "",
+  "license": "BSD"
 }

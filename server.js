@@ -1,17 +1,16 @@
 var express = require('express');
 var app = express();
 app.use(express.bodyParser());
+
 var nohm = require('nohm').Nohm;
+var redis = require('redis'),
+    client = redis.createClient(5309, 'subdomain.redistogo.com');
 
-if (process.env.REDISTOGO_URL) {
-  // inside if statement
-  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
-  var redis = require("redis").createClient(rtg.port, rtg.hostname);
-
-  redis.auth(rtg.auth.split(":")[1]);
-} else {
-  var redis = require("redis").createClient();
-}
+client.auth('pass', function authenticate(err) {
+  if (err) {
+    throw err;
+  }
+});
 
 nohm.setClient(redis);
 
