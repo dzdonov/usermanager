@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title>User Management App for CodeFellows</title>
+  <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1>User Manager</h1>
+    <hr />
+    <div class="page"></div>
+  </div>
+
+  <script src="./lib/backbone.js"></script>
+  <script src="./lib/jquery-2.1.0.js"></script>
+  <script src="./lib/underscore.js"></script>
+  
+  <script>
+
+ 	$.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+      options.url = 'http://backbonejs-beginner.herokuapp.com' + options.url;
+    });
+
+
+  	var Users = Backdone.Collection.extend({
+  		url: '/users'
+  	})
+
+  	var UserList = Backbone.View.extend({
+  		el: '.page',
+  		render: function () {
+  			var that = this;
+  			var users = new Users();
+  			users.fetch({
+  				success: function () {
+  					that.$el.html('!CONTENT SHOULD SHOW HERE!');
+  				}
+  			})
+  			
+  		}
+  	});
+
+	var Router = Backbone.Router.extend({
+        routes: {
+          "": "home", 
+          
+        }
+    });
+
+	var userList = new UserList();
+
+    var router = new Router(};
+    router.on('route:home', function() {
+      userList.render();
+    });
+    
+    Backbone.history.start();
+
+
+  </script>
+
+
+</body>
+</html>
+

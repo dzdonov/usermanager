@@ -1,0 +1,26 @@
+{
+  "name": "UserManager",
+  "version": "0.0.0",
+  "description": "This is an app for codefellows JS code challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dzdonov/usermanager"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "dennis z",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dzdonov/usermanager/issues"
+  },
+  "homepage": "https://github.com/dzdonov/usermanager",
+  "dependencies": {
+    "express": "^4.0.0"
+  }
+}
