@@ -77,15 +77,17 @@
     };
 
     $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-      options.url = 'http://pacific-fjord-2183.herokuapp.com/' + options.url;
-    });
+      options.url = 'http://pacific-fjord-2183.herokuapp.com' + options.url;
 
-    var Users = Backbone.Collection.extend({
-      url: '/users'
+      console.log("options url ", options.url);
     });
 
     var User = Backbone.Model.extend({
       urlRoot: '/users'
+    });
+
+    var Users = Backbone.Collection.extend({
+      url: '/users'
     });
 
     var UserListView = Backbone.View.extend({
@@ -93,10 +95,12 @@
       render: function () {
         var that = this;
         var users = new Users();
+        console.log("rendering users");
         users.fetch({
           success: function (users) {
             var template = _.template($('#user-list-template').html(), {users: users.models});
             that.$el.html(template);
+            console.log("fetching users successful");
           }
         })
       }
@@ -160,6 +164,7 @@
     router.on('route:home', function() {
       // render user list
       userListView.render();
+      console.log("rendering home");
     })
     router.on('route:edit', function(id) {
       userEditView.render({id: id});
