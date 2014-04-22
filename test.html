@@ -77,7 +77,7 @@
     };
 
     $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-      options.url = 'http://den333332ddrer.nodejitsu.com/' + options.url;
+      options.url = 'http://pacific-fjord-2183.herokuapp.com/' + options.url;
     });
 
     var Users = Backbone.Collection.extend({
@@ -134,7 +134,7 @@
         if(options.id) {
           that.user = new User({id: options.id});
           that.user.fetch({
-            success: function (user) {    
+            success: function (user) {
               var template = _.template($('#edit-user-template').html(), {user: user});
               that.$el.html(template);
             }
@@ -150,7 +150,7 @@
 
     var Router = Backbone.Router.extend({
         routes: {
-          "": "home", 
+          "": "home",
           "edit/:id": "edit",
           "new": "edit",
         }
@@ -169,4 +169,4 @@
 
 
 </body>
-</html> 
+</html>
