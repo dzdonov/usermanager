@@ -13,7 +13,11 @@ if (process.env.REDISTOGO_URL) {
   var redis = require("redis").createClient();
 }
 
+redis.on("connect", function() {
 nohm.setClient(redis);
+console.log("Nohm Connected to Redis Client");
+});
+
 
 var port = process.env.PORT || 3000;
 
